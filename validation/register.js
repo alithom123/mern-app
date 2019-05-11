@@ -2,6 +2,10 @@ const Validator = require("validator");
 const isEmpty = require("is-empty");
 
 module.exports = function validateRegisterInput(data) {
+    /* DEBUG */
+    console.log(data);
+
+
     // Create an object to store all the errors.
     let errors = {};
 
@@ -32,10 +36,10 @@ module.exports = function validateRegisterInput(data) {
         error.password2 = "Confirm password required";
     }
 
-    if (!Validator.isLength(data.password), {
+    if (!Validator.isLength(data.password, {
             min: 6,
             max: 30
-        }) {
+        })) {
         errors.password = "Password must be more than 6 characters"
     }
 
@@ -47,4 +51,4 @@ module.exports = function validateRegisterInput(data) {
         errors,
         isValid: isEmpty(errors)
     };
-};åç
+};
